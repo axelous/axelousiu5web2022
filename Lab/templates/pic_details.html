@@ -1,0 +1,11 @@
+{% load static %}
+
+<a href="{% url 'pic_url' i.id %}">{{ i.title }}</a>
+
+<li>
+    Описание:
+</li>
+
+<br>
+
+<img src="{% static i.img %}" width="800" height="600">

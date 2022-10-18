@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/mainpage.css' %}">
+
+{% block title %}Фотография №{{ data.pic.idphoto }} {% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/photopage.css' %}">
+
+    <div>
+        Вы открыли фотографию №{{ data.pic.idphoto }}!
+        <br>
+        Название фото: {{ data.pic.title }}
+        <br>
+        Описание фото: {{ data.pic.description }}
+        <br>
+        Дата фотографии: {{ data.pic.date }}
+    </div>
+
+{% endblock %}
