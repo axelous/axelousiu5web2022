@@ -18,14 +18,28 @@ def Welcome(request):
         'list': ['python', 'django', 'html']
     }})
 
-def GetPics(request):
-    return render(request, 'pics.html', {'data': {
-        'current_date': date.today(),
-        'pics': Photos.objects.all()
-    }})
+# def GetPics(request):
+#     return render(request, 'pics.html', {'data': {
+#         'current_date': date.today(),
+#         'pics': Photos.objects.all()
+#     }})
 
 def GetPic(request, id):
     return render(request, 'pic.html', {'data': {
         'current_date': date.today(),
         'pic': Photos.objects.filter(idphoto=id)[0]
+    }})
+
+def GetUsers(request):
+    return render(request, 'users.html', {'data': {
+        'current_date': date.today(),
+        'users': Users.objects.all()
+    }})
+
+def GetUser(request, idd):
+    return render(request, 'pics.html', {'data': {
+        'current_date': date.today(),
+        'account': Accounts.objects.all(),
+        'pics': Photos.objects.all(),
+        'idd': idd
     }})

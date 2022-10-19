@@ -8,7 +8,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/mainpage.css' %}">
 <ul>
     {% for pic in data.pics %}
-            {% include 'pic_element.html' with element=pic %}
+        {% for acc in data.account %}
+            {% if acc.idphoto.idphoto == pic.idphoto %}
+                    {% if acc.iduser.iduser == data.idd %}
+                        {% include 'pic_element.html' with element=pic %}
+                    {% endif %}
+            {% endif %}
+        {% endfor %}
     {% empty %}
         <li>Список пуст</li>
     {% endfor %}

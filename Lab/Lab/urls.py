@@ -8,6 +8,7 @@ from BaumstagramLab import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/', views.Welcome),
-    path('', views.GetPics),
+    path('', views.GetUsers),
+    path('user/<int:idd>', views.GetUser, name='user_url'),
     path('pic/<int:id>/', views.GetPic, name='pic_url'),
 ]

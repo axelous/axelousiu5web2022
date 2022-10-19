@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Список пользователей{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mainpage.css' %}">
+<ul>
+    Выберите пользователя:
+    <br>
+<br/>
+    {% for user in data.users %}
+            {% include 'user_element.html' with element=user %}
+    {% empty %}
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+{% endblock %}
