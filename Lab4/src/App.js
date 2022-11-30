@@ -1,30 +1,16 @@
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import {HomePage} from "./pages/HomePage";
+import {ProfilePage} from "./pages/ProfilePage";
+import {PostPage} from "./pages/PostPage";
 
-function App() {
+export const App = () =>{
 
     return (
-        <BrowserRouter basename="/" >
-            <div>
-                <ul>
-                    <li>
-                        <Link to="/">Старт</Link>
-                    </li>
-                    <li>
-                        <Link to="/new">Хочу на страницу с чем-то новеньким</Link>
-                    </li>
-                </ul>
-                <hr />
-                <Switch>
-                    <Route exact path="/">
-                        <h1>Это наша стартовая страница</h1>
-                    </Route>
-                    <Route path="/new">
-                        <h1>Это наша страница с чем-то новеньким</h1>
-                    </Route>
-                </Switch>
-            </div>
-        </BrowserRouter>
-    );
+        <Routes>
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/profile/:idUser" element={<ProfilePage />}/>
+            <Route path="/post/:idPost" element={<PostPage />}/>
+        </Routes>
+    )
 }
 
-export default App;
